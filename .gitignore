@@ -2,5 +2,6 @@
 .idea/*
 deployment/vagrantbox/*
 src/pages/*
+!src/pages/README.md
 src/smarty/cache/compile/*
 vendor/*

@@ -8,8 +8,8 @@ const RESOURCE_FOLDER = BASE_FOLDER . '/resources';
 const TEMPLATE_FOLDER = BASE_FOLDER . '/templates';
 
 const SMARTY_CONFIG_FOLDER = BASE_FOLDER . '/smarty/config';
-const SMARTY_COMPILE_FOLDER = BASE_FOLDER . '/smarty/config/compile';
 const SMARTY_CACHE_FOLDER = BASE_FOLDER . '/smarty/cache';
+const SMARTY_COMPILE_FOLDER = BASE_FOLDER . '/smarty/cache/compile';
 
 const BASE_URL = '/vaults/'; // this changes the path to the vault selection and with it to each file
 const VAULT_RESOURCE_FOLDERNAME = '.Resources';
