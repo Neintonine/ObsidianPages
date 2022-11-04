@@ -1,0 +1,6 @@
+.htaccess
+.idea/*
+deployment/vagrantbox/*
+src/pages/*
+src/smarty/cache/compile/*
+vendor/*

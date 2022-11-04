@@ -1,0 +1,54 @@
+
+
+.title {
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+
+
+.tag {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;
+
+    background-color: #0dcaf0;
+
+    padding: 3px 7px;
+    border-radius: 10px;
+    color: blue;
+    text-decoration: none;
+}
+
+.tag:hover {
+    color: blue;
+
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    padding: 5px;
+    border-bottom: 2px solid #ddd;
+}
+td {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover td {
+    background-color: #ee6;
+
+}
+tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.markdownImage {
+    width: 90%;
+    max-width: 800px;
+    margin: 5px 10px;
+    box-shadow: -1px -1px 10px 3px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+}

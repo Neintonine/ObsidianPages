@@ -1,0 +1,11 @@
+server {
+    server_name localhost;
+    listen 80;
+
+    root /var/www/html/;
+    location / {
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME  $document_root/php/router.php;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}

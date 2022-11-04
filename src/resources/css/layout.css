@@ -1,0 +1,50 @@
+a {
+    color: inherit;
+    transition: color .25s ease;
+    user-select: none;
+}
+a:hover {
+    color: #aaa;
+}
+
+.flex-container {
+    display: flex;
+}
+
+nav {
+    font-family: 'Exo 2', sans-serif;
+
+    flex: none;
+    width: 300px;
+    padding: 20px;
+    overflow: auto;
+    background-color: #525E56;
+    color: #FAF0F0;
+
+}
+
+nav.closed {
+    width: 30px;
+}
+
+nav.closed * {
+    transform: scale(0);
+}
+
+main {
+    font-family: 'Exo 2', sans-serif;
+    overflow: auto;
+    flex-grow: 2;
+    height: 100vh;
+    background-color: #FAF0F0;
+}
+
+.contentDisplay {
+    height: 100%;
+    position: relative;
+    left: 10%;
+    max-width: 75%;
+    padding: 20px;
+    border-left: 1px solid #EAE0E0;
+    border-right: 1px solid #F1E5E5;
+}

@@ -1,0 +1,27 @@
+
+.vaultSelect {
+    vertical-align: center;
+    font-weight: bold;
+    font-size: 13pt;
+    color: gray;
+    text-decoration: none;
+    transition: color .25s ease;
+    cursor: pointer;
+}
+
+.vaultSelector {
+    float: left;
+    width: 10px;
+    height: 30px;
+    margin-right: 5px;
+    transform: scale(1, 1);
+    transition: transform .25s ease;
+}
+
+.vaultSelect:hover .vaultSelector {
+    transform: scale(1, 1.2);
+}
+
+.clearfix {
+    clear:both;
+}

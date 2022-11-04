@@ -1,0 +1,12 @@
+{
+  "require": {
+    "smarty/smarty": "4.*",
+    "erusev/parsedown": "1.7.4"
+  },
+  "autoload": {
+
+    "psr-4": {
+      "ObsidianPages\\": "php"
+    }
+  }
+}
