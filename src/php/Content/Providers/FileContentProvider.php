@@ -12,29 +12,26 @@ use ObsidianPages\Lib\Utils;
 
 final class FileContentProvider implements ContentProvider
 {
-
-    const PAGES_FOLDER = BASE_FOLDER . '/pages';
-
     public function getFolderStructure(string $from = ''): array
     {
-        return Utils::array_get_value_by_path($this->getDirContentAsArray(self::PAGES_FOLDER), $from);
+        return Utils::array_get_value_by_path($this->getDirContentAsArray(PAGES_FOLDER), $from);
     }
 
     public function getContent(string $path): ContentReturn
     {
-        return new ContentReturn(pathinfo($path, PATHINFO_FILENAME), file_get_contents(self::PAGES_FOLDER . $path));
+        return new ContentReturn(pathinfo($path, PATHINFO_FILENAME), file_get_contents(PAGES_FOLDER . $path));
     }
 
     public function hasFile(string $path): bool
     {
-        return is_file(self::PAGES_FOLDER . $path);
+        return is_file(PAGES_FOLDER . $path);
     }
 
     public function getVaults(): array
     {
         $result = [];
 
-        $folders = $this->getFolders(self::PAGES_FOLDER);
+        $folders = $this->getFolders(PAGES_FOLDER);
         foreach ($folders as $folder) {
             $jsonFile = $folder . '/.info';
             $name = pathinfo($folder)['basename'];
@@ -79,7 +76,7 @@ final class FileContentProvider implements ContentProvider
         return $results;
     }
     private function wrapperGetDirContent(string $from): array {
-        $dirContents = $this->getDirContents(self::PAGES_FOLDER, '');
+        $dirContents = $this->getDirContents(PAGES_FOLDER, '');
         return array_map(function ($content) use ($from) {
             return substr($content, strlen($from));
         },
@@ -139,6 +136,6 @@ final class FileContentProvider implements ContentProvider
 
     public function getResource(string $path): string
     {
-        return file_get_contents(self::PAGES_FOLDER . $path);
+        return file_get_contents(PAGES_FOLDER . $path);
     }
 }
