@@ -8,19 +8,19 @@
 
 
 .tag {
-    font-family: 'Roboto', sans-serif;
-    font-size: 10pt;
+    font-family: var(--tags-font);
+    font-size: var(--tags-fontSize);
 
-    background-color: #0dcaf0;
+    background-color: var(--tags-backgroundColor);
 
     padding: 3px 7px;
     border-radius: 10px;
-    color: blue;
+    color: var(--tags-textColor);
     text-decoration: none;
 }
 
 .tag:hover {
-    color: blue;
+    color: var(--tags-textColor);
 
 }
 
@@ -30,25 +30,24 @@ table {
 
 th {
     padding: 5px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid var(--tables-seperationLineColor);
 }
 td {
     padding: 5px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--tables-seperationLineColor);
 }
 
 tr:hover td {
-    background-color: #ee6;
-
+    background-color: var(--tables-hoverBackgroundColor);
 }
 tr:nth-child(even) {
-    background-color: #eee;
+    background-color: var(--tables-evenBackgroundColor);
 }
 
 .markdownImage {
     width: 90%;
     max-width: 800px;
     margin: 5px 10px;
-    box-shadow: -1px -1px 10px 3px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
+    box-shadow: var(--images-boxShadow);
+    border-radius: var(--images-borderRadius);
 }

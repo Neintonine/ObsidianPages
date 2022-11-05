@@ -13,7 +13,7 @@
 }
 
 .navigation-folder div {
-    border-left: 1px solid #EAE0E0;
+    border-left: 1px solid var(--navigation-folderLineColor);
     padding-left: 13px;
 }
 
@@ -34,6 +34,6 @@
 
 .navigation-item-selected {
     padding: 3px 7px;
-    background: #626E66;
+    background: var(--navigation-selectedBackgroundColor);
     border-radius: 5px;
 }

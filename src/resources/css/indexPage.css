@@ -21,7 +21,3 @@
 .vaultSelect:hover .vaultSelector {
     transform: scale(1, 1.2);
 }
-
-.clearfix {
-    clear:both;
-}

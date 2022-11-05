@@ -18,33 +18,25 @@ nav {
     width: 300px;
     padding: 20px;
     overflow: auto;
-    background-color: #525E56;
-    color: #FAF0F0;
+    background-color: var(--navigation-backgroundColor);
+    color: var(--navigation-textColor);
 
-}
-
-nav.closed {
-    width: 30px;
-}
-
-nav.closed * {
-    transform: scale(0);
 }
 
 main {
-    font-family: 'Exo 2', sans-serif;
+    font-family: var(--mainContent-font);
     overflow: auto;
     flex-grow: 2;
     height: 100vh;
-    background-color: #FAF0F0;
+    background-color: var(--mainContent-backgroundColor);
 }
 
 .contentDisplay {
     height: 100%;
     position: relative;
-    left: 10%;
-    max-width: 75%;
+    left: var(--mainContent-leftPosition);
+    max-width: var(--mainContent-maxWidth);
     padding: 20px;
-    border-left: 1px solid #EAE0E0;
-    border-right: 1px solid #F1E5E5;
+    border-left: var(--mainContent-leftBorderWidth) solid var(--mainContent-leftBorderColor);
+    border-right: var(--mainContent-rightBorderWidth) solid var(--mainContent-rightBorderColor);
 }
