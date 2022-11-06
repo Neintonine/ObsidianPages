@@ -8,8 +8,23 @@ final class Utils
     public static function str_ends_with(string $str, string $end): bool {
         return (@substr_compare($str, $end, -strlen($end))==0);
     }
-    public static function str_starts_with($str, $start): bool
+
+    /**
+     * @param string|array<string> $str
+     * @param $start
+     * @return bool
+     */
+    public static function str_starts_with(string $str, $start): bool
     {
+        if (is_array($start)){
+            foreach ($start as $item) {
+                if (self::str_starts_with($str, $item)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         return (@substr_compare($str, $start, 0, strlen($start))==0);
     }
 

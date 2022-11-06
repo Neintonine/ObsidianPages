@@ -12,7 +12,7 @@ use ObsidianPages\Lib\Utils;
 final class FileContentProvider implements ContentProvider
 {
 
-    const INVISIBLE_PREFIX = '_';
+    const INVISIBLE_PREFIX = ['_', '.'];
 
     public function getFolderStructure(string $from = ''): array
     {
