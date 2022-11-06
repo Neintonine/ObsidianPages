@@ -8,8 +8,16 @@
     <body>
 
         <div class="flex-container">
+
             <nav>
-                {block "navigation"}{/block}
+                <div class="navigationBackground"></div>
+                {if $smarty.const.USE_TINTED_NAVIGATION}
+                    <div class="tintedNavigation"></div>
+                {/if}
+                <div class="navigation-content">
+                    {block "navigation"}{/block}
+                </div>
+
             </nav>
 
             <main>

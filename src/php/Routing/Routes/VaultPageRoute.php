@@ -47,9 +47,9 @@ final class VaultPageRoute implements Route
 
         $contentProvider = ContentHandler::getContentProvider();
         $vaults = ContentHandler::getContentProvider()->getVaults();
-        $currentVaultInstance = array_filter($vaults, function ( ContentVault $e) use ($currentVault) {
+        $currentVaultInstance = array_values(array_filter($vaults, function ( ContentVault $e) use ($currentVault) {
             return $e->getFolderName() == $currentVault;
-        });
+        }));
         if (empty($currentVaultInstance)) {
             return RouteResult::Error404();
         }

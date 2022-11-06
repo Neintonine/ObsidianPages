@@ -11,16 +11,39 @@ a:hover {
     display: flex;
 }
 
+.navigation-wrapper {
+}
+
 nav {
-    font-family: 'Exo 2', sans-serif;
+    font-family: var(--mainContent-font);
 
     flex: none;
-    width: 300px;
+    width: var(--navigation-width);
+    color: var(--navigation-textColor);
+}
+
+.navigation-content {
     padding: 20px;
     overflow: auto;
-    background-color: var(--navigation-backgroundColor);
-    color: var(--navigation-textColor);
+    z-index: 0;
+}
 
+.navigationBackground {
+    position: fixed;
+    top: 0;
+    background-color: var(--navigation-backgroundColor);
+    width: var(--navigation-width);
+    height: 100%;
+    z-index: -2;
+}
+
+.tintedNavigation {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: var(--navigation-width);
+    opacity: .1;
+    z-index: -1;
 }
 
 main {

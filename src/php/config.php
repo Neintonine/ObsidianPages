@@ -16,3 +16,4 @@ const SMARTY_CACHE_FOLDER = BASE_FOLDER . '/smarty/cache';
 const SMARTY_COMPILE_FOLDER = BASE_FOLDER . '/smarty/cache/compile';
 
 const THEME = 'default';
+const USE_TINTED_NAVIGATION = false;

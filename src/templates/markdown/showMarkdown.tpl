@@ -3,7 +3,7 @@
 {block name="head"}
     <link href="{$smarty.const.BASE_URL}css/markdown.css" rel="stylesheet" >
     <link href="{$smarty.const.BASE_URL}css/navigation.css" rel="stylesheet" >
-    <title>{$title} - {$vaultName}</title>
+    <title>{$title} - {$vault->getName()}</title>
 
     <script>
         let showClass = 'navigation-item-shown';
@@ -35,6 +35,13 @@
             $('.navigation-containsSelection').click();
         });
     </script>
+    <style>
+        {if $smarty.const.USE_TINTED_NAVIGATION}
+        .tintedNavigation {
+            background-color: {$vault->getColor()}
+        }
+        {/if}
+    </style>
 {/block}
 
 {block name="navigation"}

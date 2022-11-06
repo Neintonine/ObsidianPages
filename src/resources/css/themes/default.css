@@ -1,5 +1,6 @@
 :root {
     /* Navigation */
+    --navigation-width: 300px;
     --navigation-backgroundColor: #525E56;
     --navigation-textColor: #FAF0F0;
 
