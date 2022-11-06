@@ -8,8 +8,10 @@ require 'config.php';
 require '../vendor/autoload.php';
 $routes = require './Routing/routes.php';
 
-error_reporting(E_ALL);
-ini_set("display_errors", "1");
+if (DEBUG) {
+    error_reporting(E_ALL);
+    ini_set("display_errors", "1");
+}
 
 SessionData::createInstance();
 

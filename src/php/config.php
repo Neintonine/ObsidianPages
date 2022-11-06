@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+const DEBUG = true;
+
 // Server Configration
 const BASE_FOLDER = '/var/www/html'; // this is the folder where the php folder is in.
 const PHP_FOLDER = BASE_FOLDER . '/php';
