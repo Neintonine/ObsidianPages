@@ -11,6 +11,7 @@ final class ContentVault
     private string $color;
     private string $folderName;
     private bool $visible;
+    private string $startPage;
 
     public function __construct(array $data)
     {
@@ -25,6 +26,7 @@ final class ContentVault
         $this->color = $data['color'] ?? 'black';
         $this->visible = $data['visible'] ?? true;
         $this->folderName = $data['folderName'];
+        $this->startPage = $data['startPage'] ?? 'index';
     }
 
     /**
@@ -57,5 +59,13 @@ final class ContentVault
     public function getFolderName(): string
     {
         return $this->folderName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStartPage(): string
+    {
+        return $this->startPage;
     }
 }

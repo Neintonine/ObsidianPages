@@ -34,15 +34,6 @@ final class VaultPageRoute implements Route
 
     public function Act(RouteData $requestData): RouteResult
     {
-        $pathdata = pathinfo($requestData->uri);
-
-        if (!array_key_exists('extension', $pathdata)) {
-            if (Utils::str_ends_with($requestData->uri, "/")) {
-                $requestData->uri .= 'index.md';
-            } else {
-                $requestData->uri .= '.md';
-            }
-        }
         SessionData::instance()->currentVaultName = $currentVault = explode('/', $requestData->uri)[1];
 
         $contentProvider = ContentHandler::getContentProvider();
@@ -55,6 +46,16 @@ final class VaultPageRoute implements Route
         }
         SessionData::instance()->currentVault = $currentVaultInstance[0];
         SessionData::instance()->currentNote = $requestData->uri;
+
+        $pathdata = pathinfo($requestData->uri);
+
+        if (!array_key_exists('extension', $pathdata)) {
+            if (Utils::str_ends_with($requestData->uri, "/")) {
+                $requestData->uri .= SessionData::instance()->currentVault->getStartPage() . '.md';
+            } else {
+                $requestData->uri .= '.md';
+            }
+        }
 
         $folderStructure = $contentProvider->getFolderStructure($currentVault);
 
