@@ -15,3 +15,12 @@ For a little Demo and a rough guide to deploy this, check out the [Wiki](https:/
 #### Used Libraries
 - [Smarty](https://www.smarty.net/)
 - [Parsedown](https://parsedown.org/)
+
+#### TODO:
+- Mobile Support
+    While it technially works on mobile, it doesn't look great.
+- Login-Feature
+    Right now nothing really needs a login, but for some of the other features its required.
+- Vault Configuration
+    Adding a mask for the '.info' file, so someone can configure the vault.
+- Vault Adding/Updating/Removing over the vault overview
