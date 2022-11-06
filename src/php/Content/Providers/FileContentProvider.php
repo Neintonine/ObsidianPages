@@ -12,6 +12,9 @@ use ObsidianPages\Lib\Utils;
 
 final class FileContentProvider implements ContentProvider
 {
+
+    const INVISIBLE_PREFIX = '_';
+
     public function getFolderStructure(string $from = ''): array
     {
         return Utils::array_get_value_by_path($this->getDirContentAsArray(PAGES_FOLDER), $from);
@@ -92,7 +95,7 @@ final class FileContentProvider implements ContentProvider
             if ($value === '.' || $value === '..') {
                 continue;
             }
-            if (Utils::str_starts_with($value, '.')) {
+            if (Utils::str_starts_with($value, self::INVISIBLE_PREFIX)) {
                 continue;
             }
             $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
