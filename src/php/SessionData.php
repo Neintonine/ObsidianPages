@@ -17,6 +17,8 @@ final class SessionData
     public static function instance(): SessionData
     {
         if (self::$instance !== null) return self::$instance;
+        self::createInstance();
+        return self::$instance;
     }
 
     public string $currentNote;

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Routing;
 
+use Error;
+
 final class RouteHandler
 {
 
@@ -23,7 +25,7 @@ final class RouteHandler
         foreach ($arrays as $class) {
             $classInstance = new $class();
             if (!($classInstance instanceof Route)) {
-                throw new \Error('The route "' . $class . '" does not implement the Route interface.');
+                throw new Error('The route "' . $class . '" does not implement the Route interface.');
             }
 
             $this->routes[] = $classInstance;

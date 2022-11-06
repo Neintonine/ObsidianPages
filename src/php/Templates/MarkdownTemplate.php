@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Templates;
 
-use MongoDB\Driver\Session;
 use ObsidianPages\Content\ContentReturn;
 use ObsidianPages\SessionData;
 

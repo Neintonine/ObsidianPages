@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use ObsidianPages\Routing\RouteData;
 use ObsidianPages\Routing\RouteHandler;
-use ObsidianPages\Routing\RouteResult;
 use ObsidianPages\SessionData;
 
 require 'config.php';

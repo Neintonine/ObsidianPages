@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Content\Providers;
 
-use ObsidianPages\Content\ContentFolderStructure;
 use ObsidianPages\Content\ContentProvider;
 use ObsidianPages\Content\ContentReturn;
 use ObsidianPages\Content\ContentVault;
@@ -30,6 +29,9 @@ final class FileContentProvider implements ContentProvider
         return is_file(PAGES_FOLDER . $path);
     }
 
+    /**
+     * @return ContentVault[]
+     */
     public function getVaults(): array
     {
         $result = [];
@@ -105,6 +107,8 @@ final class FileContentProvider implements ContentProvider
                 continue;
             }
 
+            if (!Utils::str_ends_with($value, 'md')) continue;
+
             $result[] = $value;
         }
 
@@ -121,11 +125,11 @@ final class FileContentProvider implements ContentProvider
             return $dirname . $fileFolderStructure[$searchResult];
         }
 
-        $vaultFolderStructure = $this->wrapperGetDirContent("/".SessionData::instance()->currentVault);
+        $vaultFolderStructure = $this->wrapperGetDirContent("/".SessionData::instance()->currentVaultName);
 
         foreach ($vaultFolderStructure as $item) {
             if (Utils::str_ends_with($item, $filename)) {
-                return "/".SessionData::instance()->currentVault . $item;
+                return "/".SessionData::instance()->currentVaultName . $item;
             }
         }
 

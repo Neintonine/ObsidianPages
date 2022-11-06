@@ -23,16 +23,6 @@ class Template extends Smarty
         return $this;
     }
 
-    public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
-    {
-        parent::display($template, $cache_id, $compile_id, $parent);
-    }
-
-    public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
-    {
-        return parent::fetch($template, $cache_id, $compile_id, $parent);
-    }
-
     public static function FetchSimple(string $template = ''): string
     {
         return (new Template())->fetch($template);

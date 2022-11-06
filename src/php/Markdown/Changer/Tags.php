@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace ObsidianPages\Markdown\Changer;
 
 use ObsidianPages\Content\ContentProvider;
-use ObsidianPages\Markdown\MarkdownChangerConst;
 use ObsidianPages\Markdown\MarkdownChangerPre;
 
 final class Tags implements MarkdownChangerPre

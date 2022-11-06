@@ -4,8 +4,9 @@ declare(strict_types=1);
 namespace ObsidianPages\Markdown\Changer;
 
 use ObsidianPages\Content\ContentProvider;
+use ObsidianPages\Markdown\MarkdownChangerPre;
 
-final class References implements \ObsidianPages\Markdown\MarkdownChangerPre
+final class References implements MarkdownChangerPre
 {
 
     const REGEX = '/\[\[.+]]/i';

@@ -5,6 +5,7 @@ namespace ObsidianPages\Routing\Routes;
 
 use ObsidianPages\Content\ContentHandler;
 use ObsidianPages\Content\ContentReturn;
+use ObsidianPages\Content\ContentVault;
 use ObsidianPages\Lib\Utils;
 use ObsidianPages\Markdown\MarkdownHandler;
 use ObsidianPages\Routing\Route;

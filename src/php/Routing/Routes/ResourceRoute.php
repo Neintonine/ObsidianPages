@@ -3,13 +3,11 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Routing\Routes;
 
-use ObsidianPages\Content\ContentFolderStructure;
 use ObsidianPages\Content\ContentHandler;
 use ObsidianPages\Lib\MIMETypes;
 use ObsidianPages\Routing\RouteData;
 use ObsidianPages\Routing\RouteResult;
 use ObsidianPages\Routing\Route;
-use ObsidianPages\Templates\Template;
 
 class ResourceRoute implements Route
  {

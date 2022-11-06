@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Content;
 
+use Error;
+
 final class ContentVault
 {
     private string $name;
@@ -13,10 +15,10 @@ final class ContentVault
     public function __construct(array $data)
     {
         if (!array_key_exists("name", $data))
-            throw new \Error('The content vault needs a name!');
+            throw new Error('The content vault needs a name!');
 
         if (!array_key_exists("folderName", $data))
-            throw new \Error('The content vault needs a folder name!');
+            throw new Error('The content vault needs a folder name!');
 
 
         $this->name = $data['name'];
