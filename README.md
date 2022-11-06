@@ -1,3 +1,5 @@
+# Obsidian Pages
+
 This repo allows to easily add markdown pages to your website. (Its written specifically for Obsidian, but any kind of markdown will work) 
 
 Its supposed to be easy to maintain.
