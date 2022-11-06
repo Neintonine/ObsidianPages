@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace ObsidianPages;
 
+use ObsidianPages\Content\ContentVault;
+
 final class SessionData
 {
     static SessionData $instance;
@@ -18,5 +20,6 @@ final class SessionData
     }
 
     public string $currentNote;
-    public string $currentVault;
+    public string $currentVaultName;
+    public ContentVault $currentVault;
 }

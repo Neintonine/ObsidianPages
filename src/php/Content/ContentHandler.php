@@ -27,7 +27,7 @@ final class ContentHandler
         }
 
         $directoryIndex = 0;
-        return self::_convertStructureToHTMLRecursive($structure, $path, $directoryIndex, 0, '/' . SessionData::instance()->currentVault);
+        return self::_convertStructureToHTMLRecursive($structure, $path, $directoryIndex, 0, '/' . SessionData::instance()->currentVaultName);
     }
 
     private static function _convertStructureToHTMLRecursive(array $structure, string $selectedPath, int &$directoryIndex, int $depth, string $path): string

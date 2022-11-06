@@ -42,11 +42,19 @@ final class VaultPageRoute implements Route
                 $requestData->uri .= '.md';
             }
         }
-
-        SessionData::instance()->currentVault = $currentVault = explode('/', $requestData->uri)[1];
-        SessionData::instance()->currentNote = $requestData->uri;
+        SessionData::instance()->currentVaultName = $currentVault = explode('/', $requestData->uri)[1];
 
         $contentProvider = ContentHandler::getContentProvider();
+        $vaults = ContentHandler::getContentProvider()->getVaults();
+        $currentVaultInstance = array_filter($vaults, function ( ContentVault $e) use ($currentVault) {
+            return $e->getFolderName() == $currentVault;
+        });
+        if (empty($currentVaultInstance)) {
+            return RouteResult::Error404();
+        }
+        SessionData::instance()->currentVault = $currentVaultInstance[0];
+        SessionData::instance()->currentNote = $requestData->uri;
+
         $folderStructure = $contentProvider->getFolderStructure($currentVault);
 
         $contentData = $contentProvider->hasFile($requestData->uri) ? $contentProvider->getContent($requestData->uri) : self::$NotFoundReturn;

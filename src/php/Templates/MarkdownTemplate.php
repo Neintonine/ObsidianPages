@@ -13,7 +13,7 @@ final class MarkdownTemplate extends Template
     {
         parent::__construct();
 
-        $this->assign('vaultName', SessionData::instance()->currentVault);
+        $this->assign('vaultName', SessionData::instance()->currentVault->getName());
     }
 
     public function setMarkdownContent(ContentReturn $content)
