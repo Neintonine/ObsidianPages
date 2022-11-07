@@ -5,8 +5,8 @@ use ObsidianPages\Routing\RouteHandler;
 use ObsidianPages\SessionData;
 
 require 'config.php';
-require '../vendor/autoload.php';
-$routes = require './Routing/routes.php';
+require VENDOR_FOLDER . '/autoload.php';
+$routes = require PHP_FOLDER . '/Routing/routes.php';
 
 if (DEBUG) {
     error_reporting(E_ALL);
