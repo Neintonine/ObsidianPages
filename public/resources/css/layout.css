@@ -1,3 +1,12 @@
+body, div, main, nav {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--navigation-backgroundColor);
+}
+
 a {
     color: inherit;
     transition: color .25s ease;
@@ -7,46 +16,14 @@ a:hover {
     color: #aaa;
 }
 
-.flex-container {
+.contentWrapper {
     display: flex;
 }
 
-.navigation-wrapper {
-}
-
-nav {
-    font-family: var(--mainContent-font);
-
-    flex: none;
-    width: var(--navigation-width);
-    color: var(--navigation-textColor);
-}
-
-.navigation-content {
-    padding: 20px;
-    overflow: auto;
-    z-index: 0;
-}
-
-.navigationBackground {
-    position: fixed;
-    top: 0;
-    background-color: var(--navigation-backgroundColor);
-    width: var(--navigation-width);
-    height: 100%;
-    z-index: -2;
-}
-
-.tintedNavigation {
-    position: fixed;
-    top: 0;
-    height: 100%;
-    width: var(--navigation-width);
-    opacity: .1;
-    z-index: -1;
-}
-
 main {
+    z-index: 0;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
     font-family: var(--mainContent-font);
     overflow: auto;
     flex-grow: 2;

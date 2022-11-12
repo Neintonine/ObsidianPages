@@ -1,8 +1,9 @@
+{$enableNavigation = false}
+{$htmlTitle = "My public vaults"}
 {extends file="base/layout.tpl"}
 
 {block name="head"}
     <link href="{$smarty.const.BASE_URL}css/indexPage.css" rel="stylesheet" >
-    <title>My public vaults</title>
 {/block}
 
 {block name="main"}

@@ -60,12 +60,12 @@ final class VaultPageRoute implements Route
         $folderStructure = $contentProvider->getFolderStructure($currentVault);
 
         $contentData = $contentProvider->hasFile($requestData->uri) ? $contentProvider->getContent($requestData->uri) : self::$NotFoundReturn;
-
+        $rawData = $contentData->getContent();
         $markdownHandler = new MarkdownHandler();
-        $translatedMarkdown = $markdownHandler->parse($contentData->getContent(), $contentProvider);
+        $translatedMarkdown = $markdownHandler->parse($rawData, $contentProvider);
 
         $template = new MarkdownTemplate();
-        $template->setMarkdownContent($contentData->setContent($translatedMarkdown));
+        $template->setMarkdownContent($contentData->setContent($translatedMarkdown), $rawData);
         $template->setNavigation(ContentHandler::convertStructureToHTML($folderStructure, $requestData->uri));
         return RouteResult::Content200($template->fetch());
     }

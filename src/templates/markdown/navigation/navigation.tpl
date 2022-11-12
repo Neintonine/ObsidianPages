@@ -1,9 +1,9 @@
-<div class="row">
+<div>
 
-    <a href="{$smarty.const.BASE_URL}"><i class="col-auto fa-regular fa-arrow-left mt-1"></i></a>
-    <h4 class="col">{$vault->getName()}</h4>
+    <a href="{$smarty.const.BASE_URL}"><i class="fa-regular fa-arrow-left"></i></a>
+    <h4>{$vault->getName()}</h4>
 </div>
 
-<div class="row">
+<div>
     {$navigation}
 </div>

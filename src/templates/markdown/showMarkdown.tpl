@@ -1,38 +1,23 @@
+{$htmlTitle =  "`$title` - `$vault->getName()`" }
+
 {extends file="base/layout.tpl"}
 
 {block name="head"}
+    <!--suppress ALL -->
+    <meta property="og:title" content="{$htmlTitle}" />
+    <meta property="og:description" content="{$rawContent|truncate}" />
+    <meta name="theme-color" content="#FF0000">
+    <meta name="description" content="{$rawContent|truncate}">
     <link href="{$smarty.const.BASE_URL}css/markdown.css" rel="stylesheet" >
-    <link href="{$smarty.const.BASE_URL}css/navigation.css" rel="stylesheet" >
-    <title>{$title} - {$vault->getName()}</title>
+    <link href="{$smarty.const.BASE_URL}css/navigationItems.css" rel="stylesheet" >
+    <title>{$htmlTitle}</title>
 
     <script>
-        let showClass = 'navigation-item-shown';
-        let arrowClass = 'navigation-arrow-shown';
-
-        function toggleNavigation(target) {
-            let selectors = $('.navigation-item-' + target);
-            for (let selection of selectors) {
-                selection = $(selection);
-                if (selection.hasClass(showClass)) {
-                    selection.removeClass(showClass);
-                    let children = $('.' + showClass, selection);
-                    console.log(children);
-
-                    continue;
-                }
-                selection.addClass(showClass);
-            }
-
-            let arrowSelector = $('.navigation-arrow-' + target);
-            if (arrowSelector.hasClass(arrowClass)) {
-                arrowSelector.removeClass(arrowClass);
-            } else {
-                arrowSelector.addClass(arrowClass);
-            }
-        }
-
         $(function () {
             $('.navigation-containsSelection').click();
+            {if $content == ''}
+                toggleNavigation();
+            {/if}
         });
     </script>
     <style>
