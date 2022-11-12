@@ -1,39 +1,82 @@
-.navigation-item {
-    padding: 0;
-    height: 0;
+nav {
+    font-family: var(--mainContent-font);
+
+    flex: none;
+    width: var(--navigation-closedWidth);
+    color: var(--navigation-textColor);
+    z-index: 0;
+    transition: width .02s ease;
+}
+.tintedNavigation {
+    position: fixed;
+    top: 0;
+    height: 100%;
     width: 100%;
-
-    transform: scale(1,0);
+    opacity: .1;
+    z-index: -1;
 }
 
-.navigation-item-shown {
-    transform: scale(1);
-    padding: 3px 7px;
-    height: auto;
+.navigation-content {
+    opacity: 0;
+    pointer-events: none;
+    overflow: auto;
+    padding: 20px;
+    transform: translate(-50px, 0);
 }
 
-.navigation-folder div {
-    border-left: 1px solid var(--navigation-folderLineColor);
-    padding-left: 13px;
-}
+.navToggle{
+    padding: 10px 10px;
 
-.navigation-arrow {
-    transform: rotateZ(-90deg);
-    transition: transform .2s;
-}
-.navigation-arrow-shown {
     transform: rotateZ(0deg);
-}
-
-.navigation-item-text {
-    width: 100%;
-    color: inherit;
-    text-decoration: none;
+    transform-origin: center;
+    transition: transform .02s ease;
     cursor: pointer;
 }
 
-.navigation-item-selected {
-    padding: 3px 7px;
-    background: var(--navigation-selectedBackgroundColor);
-    border-radius: 5px;
+.navToggle:hover {
+    transform: rotateZ(15deg);
+}
+
+.navToggleText {
+    opacity: 0;
+    font-size: 15pt;
+}
+
+.contentWrapper[data-navOpen=true] nav {
+    width: var(--navigation-width);
+
+}
+.contentWrapper[data-navOpen=true] nav .navToggle {
+    transform: rotateZ(90deg);
+}
+
+.contentWrapper[data-navOpen=true] nav .navToggleText {
+    transition: opacity .1s ease;
+    opacity: 1;
+}
+.contentWrapper[data-navOpen=true] nav .navToggle:hover {
+    transform: rotateZ(75deg);
+}
+.contentWrapper[data-navOpen=true] nav .navigation-content {
+    opacity: 1;
+    transform: translate(-10px, 0);
+    pointer-events: auto;
+    transition: transform, opacity;
+    transition-timing-function: ease-in-out;
+    transition-duration: .1s;
+
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Styles */
+
+
+    .contentWrapper[data-navOpen=true] nav {
+        width: 95%;
+    }
+    .contentWrapper[data-navOpen=true] main {
+        opacity: .1;
+        pointer-events: none;
+    }
 }

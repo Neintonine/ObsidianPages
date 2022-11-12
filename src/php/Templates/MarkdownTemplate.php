@@ -15,10 +15,11 @@ final class MarkdownTemplate extends Template
         $this->assign('vault', SessionData::instance()->currentVault);
     }
 
-    public function setMarkdownContent(ContentReturn $content)
+    public function setMarkdownContent(ContentReturn $content, string $rawData)
     {
         $this->assign('title', $content->getTitle());
         $this->assign('content', $content->getContent());
+        $this->assign('rawContent', $rawData);
     }
 
     public function setNavigation(string $navigation)

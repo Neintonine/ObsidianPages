@@ -4,7 +4,7 @@
 >
     <i class="fa-solid fa-angle-down navigation-arrow navigation-arrow-{$targetDirectoryIndex}"></i>
     <a
-            onclick="toggleNavigation({$targetDirectoryIndex})"
+            onclick="toggleNavigationItem({$targetDirectoryIndex})"
             class="navigation-item-text {if $containsSelection}navigation-containsSelection{/if}"
     >
         {$foldername}
