@@ -5,6 +5,7 @@ body, div, main, nav {
 
 body {
     background-color: var(--navigation-backgroundColor);
+    font-size: 12pt;
 }
 
 a {
@@ -25,7 +26,8 @@ main {
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     font-family: var(--mainContent-font);
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     flex-grow: 2;
     height: 100vh;
     background-color: var(--mainContent-backgroundColor);
@@ -39,4 +41,15 @@ main {
     padding: 20px;
     border-left: var(--mainContent-leftBorderWidth) solid var(--mainContent-leftBorderColor);
     border-right: var(--mainContent-rightBorderWidth) solid var(--mainContent-rightBorderColor);
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 560px) {
+
+    .contentDisplay {
+        max-width: 90%;
+        left: 5px;
+        border-right: none;
+        font-size: 10pt;
+
+    }
 }

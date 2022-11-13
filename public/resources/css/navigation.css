@@ -18,10 +18,16 @@ nav {
 
 .navigation-content {
     opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
     pointer-events: none;
-    overflow: auto;
     padding: 20px;
     transform: translate(-50px, 0);
+
+    transition: transform, opacity;
+    transition-timing-function: ease-in-out;
+    transition-duration: .1s;
 }
 
 .navToggle{
@@ -59,18 +65,24 @@ nav {
 }
 .contentWrapper[data-navOpen=true] nav .navigation-content {
     opacity: 1;
-    transform: translate(-10px, 0);
+    width: inherit;
+    height: inherit;
+    overflow: auto;
+
+    transform: translate(0, 0);
     pointer-events: auto;
-    transition: transform, opacity;
-    transition-timing-function: ease-in-out;
-    transition-duration: .1s;
 
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 560px) {
     /* Styles */
-
+    .navToggle:hover {
+        transform: rotateZ(0deg);
+    }
+    .contentWrapper[data-navOpen=true] nav .navToggle:hover {
+        transform: rotateZ(90deg);
+    }
 
     .contentWrapper[data-navOpen=true] nav {
         width: 95%;
