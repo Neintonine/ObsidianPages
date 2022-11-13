@@ -65,7 +65,7 @@ final class VaultPageRoute implements Route
         $translatedMarkdown = $markdownHandler->parse($rawData, $contentProvider);
 
         $template = new MarkdownTemplate();
-        $template->setMarkdownContent($contentData->setContent($translatedMarkdown), $rawData);
+        $template->setMarkdownContent($contentData->setContent($translatedMarkdown), ContentHandler::convertRawDataToText($rawData));
         $template->setNavigation(ContentHandler::convertStructureToHTML($folderStructure, $requestData->uri));
         return RouteResult::Content200($template->fetch());
     }

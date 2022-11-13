@@ -20,6 +20,11 @@ final class ContentHandler
         return self::$provider ?? (self::$provider = new FileContentProvider());
     }
 
+    public static function convertRawDataToText(string $rawData): string
+    {
+        return str_replace('"', '\'', $rawData);
+    }
+
     public static function convertStructureToHTML(array $structure, string $path): string
     {
         if (empty($structure)) {
