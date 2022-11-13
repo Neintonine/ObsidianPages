@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Templates;
 
+use ObsidianPages\Configuration\ConfigurationHandler;
+use ObsidianPages\Configuration\Configurations\BasicConfiguration;
+use ObsidianPages\Configuration\Configurations\SmartyConfiguration;
 use Smarty;
 
 class Template extends Smarty
@@ -11,10 +14,17 @@ class Template extends Smarty
     {
         parent::__construct();
 
-        $this->setTemplateDir(TEMPLATE_FOLDER);
-        $this->setConfigDir(SMARTY_CONFIG_FOLDER);
-        $this->setCacheDir(SMARTY_CACHE_FOLDER);
-        $this->setCompileDir(SMARTY_COMPILE_FOLDER);
+        $basicConfig = ConfigurationHandler::Instance()->Get(BasicConfiguration::class);
+        $smartyConfig = ConfigurationHandler::Instance()->Get(SmartyConfiguration::class);
+
+        $this->setTemplateDir($basicConfig->getTemplateFolder());
+        $this->setConfigDir($smartyConfig->getConfigFolder());
+        $this->setCacheDir($smartyConfig->getCacheFolder());
+        $this->setCompileDir($smartyConfig->getCompileFolder());
+
+        $this->assign('configHandler', ConfigurationHandler::Instance());
+        $this->assign('basicConfig', $basicConfig);
+        $this->assign('smartyConfig', $smartyConfig);
     }
 
     public function setContent($content): Template

@@ -3,7 +3,7 @@
 {extends file="base/layout.tpl"}
 
 {block name="head"}
-    <link href="{$smarty.const.BASE_URL}css/indexPage.css" rel="stylesheet" >
+    <link href="{$basicConfig->getBaseURL()}css/indexPage.css" rel="stylesheet" >
 {/block}
 
 {block name="main"}
@@ -13,7 +13,7 @@
 
         {foreach from=$vaults item=vault}
             <div>
-                <a class="vaultSelect" href="{$smarty.const.BASE_URL}{$vault->getFolderName()}/">
+                <a class="vaultSelect" href="{$basicConfig->getBaseURL()}{$vault->getFolderName()}/">
                     <div class="vaultSelector" style="background-color: {$vault->getColor()}"></div>
                     {$vault->getName()}
                 </a>

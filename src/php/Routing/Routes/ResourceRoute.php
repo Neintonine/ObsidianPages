@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Routing\Routes;
 
+use ObsidianPages\Configuration\ConfigurationHandler;
+use ObsidianPages\Configuration\Configurations\BasicConfiguration;
 use ObsidianPages\Content\ContentHandler;
 use ObsidianPages\Lib\MIMETypes;
 use ObsidianPages\Routing\RouteData;
@@ -21,7 +23,7 @@ class ResourceRoute implements Route
 
     public function Act(RouteData $requestData): RouteResult
     {
-        $resourcePath = RESOURCE_FOLDER . $requestData->uri;
+        $resourcePath = ConfigurationHandler::Instance()->Get(BasicConfiguration::class)->getResourceFolder() . $requestData->uri;
 
         return $this->HandleRouting($resourcePath);
     }

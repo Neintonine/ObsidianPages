@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ObsidianPages\Content;
 
 use Error;
+use ObsidianPages\Exceptions\ObsidianPagesException;
 
 final class ContentVault
 {
@@ -16,10 +17,10 @@ final class ContentVault
     public function __construct(array $data)
     {
         if (!array_key_exists("name", $data))
-            throw new Error('The content vault needs a name!');
+            throw new ObsidianPagesException('The content vault needs a name!');
 
         if (!array_key_exists("folderName", $data))
-            throw new Error('The content vault needs a folder name!');
+            throw new ObsidianPagesException('The content vault needs a folder name!');
 
 
         $this->name = $data['name'];

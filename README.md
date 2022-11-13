@@ -10,7 +10,7 @@ For a little Demo and a rough guide to deploy this, check out the [Wiki](https:/
 
 #### Pre-requirements:
 - Some knowledge about PHP and Linux
-- A webserver with PHP 7.4 installed
+- A webserver with PHP 8.1 installed
 
 #### Used Libraries
 - [Smarty](https://www.smarty.net/)

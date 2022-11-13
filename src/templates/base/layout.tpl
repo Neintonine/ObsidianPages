@@ -25,7 +25,7 @@
         <div class="contentWrapper" data-navOpen="false">
             {if $enableNavigation}
                 <nav>
-                    {if $smarty.const.USE_TINTED_NAVIGATION}
+                    {if $smartyConfig->isUsingTintedNavigation()}
                         <div class="tintedNavigation"></div>
                     {/if}
 

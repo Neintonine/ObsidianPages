@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Routing {
 
+    use ObsidianPages\Configuration\Configuration;
+    use ObsidianPages\Configuration\ConfigurationHandler;
+    use ObsidianPages\Configuration\Configurations\BasicConfiguration;
+
     final class RouteData
     {
         public string $uri;
@@ -10,12 +14,13 @@ namespace ObsidianPages\Routing {
 
         public function __construct($serverData)
         {
+            $baseURL = ConfigurationHandler::Instance()->Get(BasicConfiguration::class)->getBaseURL();
+
             $this->error = false;
-            if (strlen($serverData['DOCUMENT_URI']) < strlen(BASE_URL)) {
+            if (strlen($serverData['DOCUMENT_URI']) < strlen($baseURL)) {
                 $this->error = true;
             }
-
-            $this->uri = '/'. substr($serverData['DOCUMENT_URI'], strlen(BASE_URL));
+            $this->uri = '/'. substr($serverData['DOCUMENT_URI'], strlen($baseURL));
         }
 
         public function checkError(): bool {

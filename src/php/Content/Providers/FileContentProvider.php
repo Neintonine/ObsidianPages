@@ -3,40 +3,47 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Content\Providers;
 
+use ObsidianPages\Configuration\ConfigurationHandler;
+use ObsidianPages\Configuration\Configurations\FileContentSettings;
 use ObsidianPages\Content\ContentProvider;
 use ObsidianPages\Content\ContentReturn;
 use ObsidianPages\Content\ContentVault;
+use ObsidianPages\Exceptions\ObsidianPagesException;
 use ObsidianPages\SessionData;
 use ObsidianPages\Lib\Utils;
 
 final class FileContentProvider implements ContentProvider
 {
-
-    const INVISIBLE_PREFIX = ['_', '.'];
+    private string $path;
+    public function __construct()
+    {
+        $this->path = ConfigurationHandler::Instance()->Get(FileContentSettings::class)->getPagesFolder();
+    }
 
     public function getFolderStructure(string $from = ''): array
     {
-        return Utils::array_get_value_by_path($this->getDirContentAsArray(PAGES_FOLDER), $from);
+        return Utils::array_get_value_by_path($this->getDirContentAsArray($this->path), $from);
     }
 
     public function getContent(string $path): ContentReturn
     {
-        return new ContentReturn(pathinfo($path, PATHINFO_FILENAME), file_get_contents(PAGES_FOLDER . $path));
+        return new ContentReturn(pathinfo($path, PATHINFO_FILENAME), file_get_contents($this->path . $path));
     }
 
     public function hasFile(string $path): bool
     {
-        return is_file(PAGES_FOLDER . $path);
+        return is_file($this->path . $path);
     }
 
     /**
      * @return ContentVault[]
+     * @throws ObsidianPagesException
      */
     public function getVaults(): array
     {
         $result = [];
 
-        $folders = $this->getFolders(PAGES_FOLDER);
+        $folders = $this->getFolders($this->path);
         foreach ($folders as $folder) {
             $jsonFile = $folder . '/.info';
             $name = pathinfo($folder)['basename'];
@@ -81,7 +88,7 @@ final class FileContentProvider implements ContentProvider
         return $results;
     }
     private function wrapperGetDirContent(string $from): array {
-        $dirContents = $this->getDirContents(PAGES_FOLDER, '');
+        $dirContents = $this->getDirContents($this->path, '');
         return array_map(function ($content) use ($from) {
             return substr($content, strlen($from));
         },
@@ -91,13 +98,14 @@ final class FileContentProvider implements ContentProvider
     }
 
     private function getDirContentAsArray(string $dir): array {
+        $invisiblePrefix = ConfigurationHandler::Instance()->Get(FileContentSettings::class)->getInvisiblePrefixes();
         $files = scandir($dir);
         $result = [];
         foreach ($files as $key => $value) {
             if ($value === '.' || $value === '..') {
                 continue;
             }
-            if (Utils::str_starts_with($value, self::INVISIBLE_PREFIX)) {
+            if (Utils::str_starts_with($value, $invisiblePrefix)) {
                 continue;
             }
             $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
@@ -143,6 +151,6 @@ final class FileContentProvider implements ContentProvider
 
     public function getResource(string $path): string
     {
-        return file_get_contents(PAGES_FOLDER . $path);
+        return file_get_contents($this->path . $path);
     }
 }

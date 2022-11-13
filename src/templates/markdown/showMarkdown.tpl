@@ -8,8 +8,8 @@
     <meta property="og:description" content="{$rawContent|truncate:200}" />
     <meta name="theme-color" content="#FF0000">
     <meta name="description" content="{$rawContent|truncate:200}">
-    <link href="{$smarty.const.BASE_URL}css/markdown.css" rel="stylesheet" >
-    <link href="{$smarty.const.BASE_URL}css/navigationItems.css" rel="stylesheet" >
+    <link href="{$basicConfig->getBaseURL()}css/markdown.css" rel="stylesheet" >
+    <link href="{$basicConfig->getBaseURL()}css/navigationItems.css" rel="stylesheet" >
     <title>{$htmlTitle}</title>
 
     <script>
@@ -21,11 +21,9 @@
         });
     </script>
     <style>
-        {if $smarty.const.USE_TINTED_NAVIGATION}
         .tintedNavigation {
             background-color: {$vault->getColor()}
         }
-        {/if}
     </style>
 {/block}
 

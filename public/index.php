@@ -1,17 +1,30 @@
 <?php
 declare(strict_types=1);
 
+use ObsidianPages\Configuration\ConfigurationHandler;
+use ObsidianPages\Configuration\Configurations\BasicConfiguration;
+use ObsidianPages\Configuration\Configurations\SmartyConfiguration;
+use ObsidianPages\Exceptions\ErrorHandler;
 use ObsidianPages\Routing\RouteHandler;
 use ObsidianPages\SessionData;
 
-require 'config.php';
-require VENDOR_FOLDER . '/autoload.php';
-$routes = require PHP_FOLDER . '/Routing/routes.php';
+const BASE_FOLDER = __DIR__ . '/..'; // this is the folder where the php folder is in.
+const VENDOR_FOLDER = BASE_FOLDER . '/vendor';
 
-if (DEBUG) {
+require VENDOR_FOLDER . '/autoload.php';
+
+if (ConfigurationHandler::DEBUG) {
     error_reporting(E_ALL);
-    ini_set("display_errors", "1");
+    ini_set("display_errors", "0");
+    set_error_handler([ErrorHandler::class, 'HandleWarning'], E_WARNING);
+    set_error_handler([ErrorHandler::class, 'HandleError'], E_ERROR);
+    register_shutdown_function([ErrorHandler::class, 'ShutdownFunction']);
 }
+
+$configInstance = ConfigurationHandler::Instance();
+$configInstance->AddDefaults();
+$configInstance->Add(new SmartyConfiguration(useTintedNavigation: false)); // Example on how to change a config.
+$routes = require $configInstance->Get(BasicConfiguration::class)->getPhpFolder() . '/Routing/routes.php';
 
 SessionData::createInstance();
 
