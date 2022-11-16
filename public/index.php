@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use ObsidianPages\Authentication\AuthenticationHandler;
+use ObsidianPages\Authentication\Authentications\StaticAuthentication;
 use ObsidianPages\Configuration\ConfigurationHandler;
 use ObsidianPages\Configuration\Configurations\BasicConfiguration;
 use ObsidianPages\Configuration\Configurations\SmartyConfiguration;
@@ -23,7 +25,6 @@ if (ConfigurationHandler::DEBUG) {
 
 $configInstance = ConfigurationHandler::Instance();
 $configInstance->AddDefaults();
-$configInstance->Add(new SmartyConfiguration(useTintedNavigation: false)); // Example on how to change a config.
 $routes = require $configInstance->Get(BasicConfiguration::class)->getPhpFolder() . '/Routing/routes.php';
 
 SessionData::createInstance();

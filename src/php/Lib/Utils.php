@@ -29,7 +29,7 @@ final class Utils
     }
 
     public static function pretty_print_r($object) {
-        echo '<pre>' . print_r($object, true) . '</pre>';
+        echo '<pre>' . var_dump($object) . '</pre>';
     }
 
     public static function array_get_value_by_path(array $array, string $path, bool $allowSkip = false) {

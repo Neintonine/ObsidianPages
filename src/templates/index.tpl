@@ -7,8 +7,16 @@
 {/block}
 
 {block name="main"}
+
     <div class="contentDisplay">
 
+        {if $hasAuthConfig}
+            {if $isAuthenticated}
+                <a style="float: right" href="{$basicConfig->getBaseURL()}logout">Logout</a>
+                {else}
+                <a style="float: right" href="{$basicConfig->getBaseURL()}login">Login</a>
+            {/if}
+        {/if}
         <h3>My Vaults:</h3>
 
         {foreach from=$vaults item=vault}
@@ -17,7 +25,8 @@
                     <div class="vaultSelector" style="background-color: {$vault->getColor()}"></div>
                     {$vault->getName()}
                 </a>
-            </div><br>
+            </div>
+            <br>
         {/foreach}
     </div>
 {/block}

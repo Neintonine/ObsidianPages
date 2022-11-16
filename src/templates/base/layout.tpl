@@ -34,6 +34,12 @@
                     <div class="navigation-content">
                         {block "navigation"}{/block}
                     </div>
+
+                    {if $hasAuthConfig}
+                    <div class="navigation-content nav-login">
+                        <a href="{$basicConfig->getBaseURL()}login">Login</a>
+                    </div>
+                    {/if}
                 </nav>
             {/if}
 

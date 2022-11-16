@@ -7,6 +7,11 @@ nav {
     z-index: 0;
     transition: width .02s ease;
 }
+.nav-login {
+    position: fixed;
+    bottom: 0;
+}
+
 .tintedNavigation {
     position: fixed;
     top: 0;

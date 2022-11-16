@@ -3,16 +3,12 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Configuration;
 
-class Configuration
+interface Configuration
 {
     /**
      * @return string[]
      */
-    public static function RequiredConfiguration(): array
-    {
-        return [];
-    }
+    public static function RequiredConfiguration(): array;
 
-    public function OnRequest(): void
-    {}
+    public function OnRequest(): void;
 }

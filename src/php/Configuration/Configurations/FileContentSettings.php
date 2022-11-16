@@ -6,7 +6,7 @@ namespace ObsidianPages\Configuration\Configurations;
 use ObsidianPages\Configuration\Configuration;
 use ObsidianPages\Configuration\ConfigurationHandler;
 
-final class FileContentSettings extends Configuration
+final class FileContentSettings implements Configuration
 {
     private BasicConfiguration $basicConfiguration;
 

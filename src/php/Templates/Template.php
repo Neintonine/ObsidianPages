@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Templates;
 
+use ObsidianPages\Authentication\AuthenticationHandler;
 use ObsidianPages\Configuration\ConfigurationHandler;
 use ObsidianPages\Configuration\Configurations\BasicConfiguration;
 use ObsidianPages\Configuration\Configurations\SmartyConfiguration;
@@ -25,6 +26,8 @@ class Template extends Smarty
         $this->assign('configHandler', ConfigurationHandler::Instance());
         $this->assign('basicConfig', $basicConfig);
         $this->assign('smartyConfig', $smartyConfig);
+        $this->assign('hasAuthConfig', AuthenticationHandler::hasAvailiableAuthentication());
+        $this->assign('isAuthenticated', AuthenticationHandler::isAuthenticated());
     }
 
     public function setContent($content): Template

@@ -3,12 +3,10 @@ declare(strict_types=1);
 
 namespace ObsidianPages\Configuration;
 
-use Error;
-use Exception;
+use ObsidianPages\Authentication\Authentication;
 use ObsidianPages\Configuration\Configurations\BasicConfiguration;
 use ObsidianPages\Configuration\Configurations\SmartyConfiguration;
 use ObsidianPages\Exceptions\ObsidianPagesException;
-use ObsidianPages\Lib\Utils;
 
 final class ConfigurationHandler
 {

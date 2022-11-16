@@ -5,7 +5,7 @@ namespace ObsidianPages\Configuration\Configurations;
 
 use ObsidianPages\Configuration\Configuration;
 
-final class BasicConfiguration extends Configuration
+final class BasicConfiguration implements Configuration
 {
     /**
      * @param string $baseDir
@@ -74,5 +74,15 @@ final class BasicConfiguration extends Configuration
     public function getBaseURL(): string
     {
         return $this->baseURL;
+    }
+
+    public static function RequiredConfiguration(): array
+    {
+        return [];
+    }
+
+    public function OnRequest(): void
+    {
+        // TODO: Implement OnRequest() method.
     }
 }

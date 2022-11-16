@@ -6,7 +6,7 @@ namespace ObsidianPages\Configuration\Configurations;
 use ObsidianPages\Configuration\Configuration;
 use ObsidianPages\Configuration\ConfigurationHandler;
 
-final class SmartyConfiguration extends Configuration
+final class SmartyConfiguration implements Configuration
 {
     private BasicConfiguration $basicConfiguration;
 
