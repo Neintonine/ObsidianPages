@@ -3,12 +3,12 @@
 This repo allows to easily add markdown pages to your website. (Its written specifically for Obsidian, but any kind of markdown will work) 
 
 Its supposed to be easy to maintain.
-The hardest part should be the Deployment. 
+The hardest part should be the [Deployment](https://obsidian.iedsoftworks.com/ObsidianPages/Deployments/Deployment.md). 
 After that it should be as easy as placing your vaults into the pages-Folder.
 
 #### Pre-requirements:
 - Some knowledge about PHP and Linux
-- A webserver with PHP 8.1 installed
+- A webserver with PHP 8.1+ installed
 
 #### Used Libraries
 - [Smarty](https://www.smarty.net/)
