@@ -1,8 +1,0 @@
-.htaccess
-.idea/*
-deployment/vagrantbox/*
-pages/*
-!pages/README.md
-src/smarty/cache/compile/*
-vendor/*
-composer.phar
