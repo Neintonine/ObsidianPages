@@ -1,0 +1,19 @@
+@mixin loadFont($font-name, $font-path, $font-format: 'truetype', $font-style: "normal", $font-weight: "normal") {
+  @font-face {
+    font-family: $font-name;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src: local($font-name),
+        url($font-path) format($font-format);
+  }
+}
+
+@mixin loadExoFont() {
+  @include loadFont('Exo 2', '../../assets/fonts/Exo_2/Exo2-Italic-VariableFont_wght.ttf', $font-style: 'italic');
+  @include loadFont('Exo 2', '../../assets/fonts/Exo_2/Exo2-VariableFont_wght.ttf');
+}
+
+@mixin loadRoboto() {
+  @include loadFont('Roboto', '../../assets/fonts/Roboto/Roboto-Light.ttf');
+  @include loadFont('Roboto', '../../assets/fonts/Roboto/Roboto-Light.ttf', $font-weight: 'bold')
+}

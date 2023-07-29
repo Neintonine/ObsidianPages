@@ -27,14 +27,14 @@ module.exports = {
                     to: Path.resolve(PUBLIC_FOLDER + '/img'),
                 },*/
                 {
-                    from: Path.resolve('src/php/index.php'),
+                    from: Path.resolve('src/php/' + (PROD ? "index.prod.php" : "index.dev.php")),
                     to: Path.resolve(PUBLIC_FOLDER + '/index.php')
                 }
             ]
         })
     ],
     mode: PROD ? 'production' : 'development',
-    devtool: PROD ? undefined : 'source-map',
+    devtool: PROD ? undefined : 'inline-source-map',
     module: {
         rules: [
             {
